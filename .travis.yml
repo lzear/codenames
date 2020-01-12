@@ -8,5 +8,6 @@ cache:
     - node_modules
 script:
   - yarn test --coverage --watchAll=false --coverageReporters=text-lcov
-  - codecov -f coverage/*.json
   - yarn build
+after_success:
+  - codecov
