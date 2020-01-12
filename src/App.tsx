@@ -51,12 +51,11 @@ const App: React.FC = () => {
     [seed],
   );
   let starter: Color.BLUE | Color.RED | null = null;
-  if (game) {
+  if (game)
     starter =
-      game.flat().filter(color => color === Color.BLUE).length === 8
+      game.flat().filter(color => color === Color.BLUE).length === 9
         ? Color.BLUE
         : Color.RED;
-  }
   return (
     <Main ref={ref}>
       <Button type="button" onClick={() => setHidden(v => !v)}>
