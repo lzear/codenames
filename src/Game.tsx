@@ -29,7 +29,7 @@ const Card: React.FC<{ cardColor: Color; width: number }> = ({
       cardColor={cardColor}
       width={width}
       found={found}
-      onClick={() => setFound(v => !v)}
+      onClick={() => setFound((v) => !v)}
     />
   );
 };

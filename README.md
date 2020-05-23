@@ -5,4 +5,4 @@
 
 # Codenames secret card generator
 
-https://github.com/lzear/codenames
+[https://code-names.netlify.app](https://code-names.netlify.app)

@@ -6,9 +6,7 @@ import Game from './Game';
 import { Color, generate } from './generate';
 
 const seedStr = (): string =>
-  `?seed=${Math.random()
-    .toString(36)
-    .substring(7)}`;
+  `?seed=${Math.random().toString(36).substring(7)}`;
 
 const Main = styled.main`
   max-width: 600px;
@@ -53,12 +51,12 @@ const App: React.FC = () => {
   let starter: Color.BLUE | Color.RED | null = null;
   if (game)
     starter =
-      game.flat().filter(color => color === Color.BLUE).length === 9
+      game.flat().filter((color) => color === Color.BLUE).length === 9
         ? Color.BLUE
         : Color.RED;
   return (
     <Main ref={ref}>
-      <Button type="button" onClick={() => setHidden(v => !v)}>
+      <Button type="button" onClick={() => setHidden((v) => !v)}>
         {hidden ? 'Show' : 'Hide'}
       </Button>
       {starter !== null && (
