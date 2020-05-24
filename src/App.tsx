@@ -139,6 +139,14 @@ const App: React.FC = () => {
           Use image
         </label>
       </Actions>
+      <div style={{ textAlign: 'right' }}>
+        <a href="https://github.com/lzear/codenames">
+          <img
+            alt="star this repo"
+            src="https://img.shields.io/github/stars/lzear/codenames?style=social"
+          />
+        </a>
+      </div>
     </Main>
   );
 };
