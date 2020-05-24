@@ -2,21 +2,21 @@
 #  require_ci_to_pass: yes
 
 coverage:
-  precision: 2
-  round: down
-  range: "70...100"
-  status:
-    patch:
-      default:
-        enabled: false
+  range: "0...100"
+#  precision: 2
+#  round: down
+#  status:
+#    patch:
+#      default:
+#        enabled: false
 
-parsers:
-  gcov:
-    branch_detection:
-      conditional: yes
-      loop: yes
-      method: no
-      macro: no
+#parsers:
+#  gcov:
+#    branch_detection:
+#      conditional: yes
+#      loop: yes
+#      method: no
+#      macro: no
 
 #comment:
 #  layout: "reach,diff,flags,tree"
