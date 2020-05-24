@@ -1,42 +1,31 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { History } from 'history';
-import styled from 'styled-components';
-import Game from './Game';
+import { withRouter } from 'react-router-dom';
+import Image from './Image';
+import { Tiles } from './Game';
 import { Color, generate } from './generate';
+import { Main, Button, Actions } from './components/Components';
+import { onFileChange, seedStr, useSeed } from './helpers';
 
-const seedStr = (): string =>
-  `?seed=${Math.random()
-    .toString(36)
-    .substring(7)}`;
-
-const Main = styled.main`
-  max-width: 600px;
-  margin: auto;
-  padding: 10px;
-  font-family: monospace;
-  font-size: 14px;
-`;
-
-const Button = styled.button`
-  padding: 7px;
-  margin: 20px auto;
-  display: block;
-  font-size: 14px;
-  font-family: monospace;
-`;
+const stars = (
+  <div style={{ textAlign: 'right' }}>
+    <a href="https://github.com/lzear/codenames">
+      <img
+        alt="star this repo"
+        src="https://img.shields.io/github/stars/lzear/codenames?style=social"
+      />
+    </a>
+  </div>
+);
 
 const App: React.FC = () => {
+  const fileInput = useRef<HTMLInputElement>(null);
+  const [img, setImg] = useState<string | null>(null);
   const [width, setWidth] = useState<number | null>(null);
   const [hidden, setHidden] = useState(false);
+  const [lockImg, setLockImg] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const history: History = useHistory();
-  const urlParams = new URLSearchParams(window.location.search);
-  const seed = urlParams.get('seed');
+  const [history, seed] = useSeed();
 
-  useEffect(() => {
-    if (!seed) history.replace(seedStr());
-  }, [seed, history]);
   useEffect(() => {
     const handleResize = (): void => {
       if (ref.current) setWidth(ref.current.offsetWidth);
@@ -50,17 +39,20 @@ const App: React.FC = () => {
     () => (seed ? generate(seed) : null),
     [seed],
   );
+
   let starter: Color.BLUE | Color.RED | null = null;
   if (game)
     starter =
-      game.flat().filter(color => color === Color.BLUE).length === 9
+      game.flat().filter((color) => color === Color.BLUE).length === 9
         ? Color.BLUE
         : Color.RED;
   return (
     <Main ref={ref}>
-      <Button type="button" onClick={() => setHidden(v => !v)}>
-        {hidden ? 'Show' : 'Hide'}
-      </Button>
+      <Actions>
+        <Button type="button" onClick={() => setHidden((v) => !v)}>
+          {hidden ? 'Show' : 'Hide'}
+        </Button>
+      </Actions>
       {starter !== null && (
         <div>
           Starter:{' '}
@@ -69,14 +61,61 @@ const App: React.FC = () => {
           </span>
         </div>
       )}
-      {seed && game && width && (
-        <Game hidden={hidden} game={game} seed={seed} width={width} />
-      )}
-      <Button type="button" onClick={() => history.push(seedStr())}>
-        Generate
-      </Button>
+      {seed &&
+        game &&
+        width &&
+        (img ? (
+          <Image
+            seed={seed}
+            hidden={hidden}
+            game={game}
+            width={width}
+            img={img}
+            locked={lockImg}
+          />
+        ) : (
+          <Tiles seed={seed} hidden={hidden} game={game} width={width} />
+        ))}
+      <Actions style={{ marginTop: 80 }}>
+        <Button
+          type="button"
+          onClick={() => history.push(seedStr())}
+          style={{ marginRight: 25 }}
+        >
+          New game
+        </Button>
+        {img && (
+          <Button
+            type="button"
+            onClick={() => setLockImg((v) => !v)}
+            style={{ marginRight: 25 }}
+          >
+            {lockImg ? 'Move image' : 'Lock image'}
+          </Button>
+        )}
+        <input
+          hidden
+          ref={fileInput}
+          type="file"
+          value=""
+          onChange={async (e) => setImg(await onFileChange(e))}
+        />
+        <label htmlFor="use-image">
+          <input
+            id="use-image"
+            checked={!!img}
+            type="checkbox"
+            onChange={() => {
+              if (!img && fileInput.current) fileInput.current.click();
+              else setImg(null);
+            }}
+          />{' '}
+          Use image
+        </label>
+      </Actions>
+      {stars}
     </Main>
   );
 };
 
-export default App;
+export default withRouter(App);
