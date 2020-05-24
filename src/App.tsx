@@ -1,32 +1,21 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { useHistory, withRouter } from 'react-router-dom';
-import { History } from 'history';
-import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 import Image from './Image';
 import { Tiles } from './Game';
 import { Color, generate } from './generate';
+import { Main, Button, Actions } from './components/Components';
+import { onFileChange, seedStr, useSeed } from './helpers';
 
-const seedStr = (): string =>
-  `?seed=${Math.random().toString(36).substring(7)}`;
-
-const Main = styled.main`
-  position: relative;
-  max-width: 600px;
-  margin: auto;
-  padding: 10px;
-  font-family: monospace;
-  font-size: 14px;
-`;
-const Actions = styled.div`
-  margin: 20px auto;
-  text-align: center;
-`;
-
-const Button = styled.button`
-  padding: 7px;
-  font-size: 14px;
-  font-family: monospace;
-`;
+const stars = (
+  <div style={{ textAlign: 'right' }}>
+    <a href="https://github.com/lzear/codenames">
+      <img
+        alt="star this repo"
+        src="https://img.shields.io/github/stars/lzear/codenames?style=social"
+      />
+    </a>
+  </div>
+);
 
 const App: React.FC = () => {
   const fileInput = useRef<HTMLInputElement>(null);
@@ -35,12 +24,8 @@ const App: React.FC = () => {
   const [hidden, setHidden] = useState(false);
   const [lockImg, setLockImg] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const history: History = useHistory();
-  const urlParams = new URLSearchParams(window.location.search);
-  const seed = urlParams.get('seed');
-  useEffect(() => {
-    if (!seed) history.replace(seedStr());
-  }, [seed, history]);
+  const [history, seed] = useSeed();
+
   useEffect(() => {
     const handleResize = (): void => {
       if (ref.current) setWidth(ref.current.offsetWidth);
@@ -54,6 +39,7 @@ const App: React.FC = () => {
     () => (seed ? generate(seed) : null),
     [seed],
   );
+
   let starter: Color.BLUE | Color.RED | null = null;
   if (game)
     starter =
@@ -112,19 +98,7 @@ const App: React.FC = () => {
           ref={fileInput}
           type="file"
           value=""
-          onChange={(e) => {
-            const reader = new FileReader();
-            const { files } = e.target;
-            if (!files) return;
-            const file = files[0];
-            reader.onloadend = () => {
-              if (reader.result) {
-                // @ts-ignore
-                setImg(reader.result);
-              }
-            };
-            reader.readAsDataURL(file);
-          }}
+          onChange={async (e) => setImg(await onFileChange(e))}
         />
         <label htmlFor="use-image">
           <input
@@ -139,14 +113,7 @@ const App: React.FC = () => {
           Use image
         </label>
       </Actions>
-      <div style={{ textAlign: 'right' }}>
-        <a href="https://github.com/lzear/codenames">
-          <img
-            alt="star this repo"
-            src="https://img.shields.io/github/stars/lzear/codenames?style=social"
-          />
-        </a>
-      </div>
+      {stars}
     </Main>
   );
 };
