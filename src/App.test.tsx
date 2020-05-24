@@ -9,6 +9,6 @@ it('renders "Generate" button', () => {
       <App />
     </MemoryRouter>,
   );
-  const linkElement = getByText(/Generate/i);
+  const linkElement = getByText(/New game/i);
   expect(linkElement).toBeInTheDocument();
 });
