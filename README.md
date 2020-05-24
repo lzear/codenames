@@ -6,6 +6,7 @@
 ![W3C Validation](https://img.shields.io/w3c-validation/default?targetUrl=https%3A%2F%2Fcode-names.netlify.app%2F)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1e8bdfde68014ee4badab41a4f64648f)](https://app.codacy.com/manual/lzear/codenames?utm_source=github.com&utm_medium=referral&utm_content=lzear/codenames&utm_campaign=Badge_Grade_Settings)
 [![codecov](https://codecov.io/gh/lzear/codenames/branch/master/graph/badge.svg)](https://codecov.io/gh/lzear/codenames)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d58319896e331e0c7b58/maintainability)](https://codeclimate.com/github/lzear/codenames/maintainability)
 ![GitHub](https://img.shields.io/github/license/lzear/codenames)
 
 # Codenames secret card generator

@@ -7,7 +7,7 @@ import { Main, Button, Actions } from './components/Components';
 import { onFileChange, seedStr, useSeed } from './helpers';
 
 const stars = (
-  <div style={{ textAlign: 'right' }}>
+  <div style={{ textAlign: 'right', flex: 0, padding: '15px 0 5px' }}>
     <a href="https://github.com/lzear/codenames">
       <img
         alt="star this repo"
@@ -48,71 +48,73 @@ const App: React.FC = () => {
         : Color.RED;
   return (
     <Main ref={ref}>
-      <Actions>
-        <Button type="button" onClick={() => setHidden((v) => !v)}>
-          {hidden ? 'Show' : 'Hide'}
-        </Button>
-      </Actions>
-      {starter !== null && (
-        <div>
-          Starter:{' '}
-          <span style={{ color: starter }}>
-            {starter === Color.BLUE ? 'Blue' : 'Red'}
-          </span>
-        </div>
-      )}
-      {seed &&
-        game &&
-        width &&
-        (img ? (
-          <Image
-            seed={seed}
-            hidden={hidden}
-            game={game}
-            width={width}
-            img={img}
-            locked={lockImg}
-          />
-        ) : (
-          <Tiles seed={seed} hidden={hidden} game={game} width={width} />
-        ))}
-      <Actions style={{ marginTop: 80 }}>
-        <Button
-          type="button"
-          onClick={() => history.push(seedStr())}
-          style={{ marginRight: 25 }}
-        >
-          New game
-        </Button>
-        {img && (
+      <div style={{ flex: 1 }}>
+        <Actions>
+          <Button type="button" onClick={() => setHidden((v) => !v)}>
+            {hidden ? 'Show' : 'Hide'}
+          </Button>
+        </Actions>
+        {starter !== null && (
+          <div>
+            Starter:{' '}
+            <span style={{ color: starter }}>
+              {starter === Color.BLUE ? 'Blue' : 'Red'}
+            </span>
+          </div>
+        )}
+        {seed &&
+          game &&
+          width &&
+          (img ? (
+            <Image
+              seed={seed}
+              hidden={hidden}
+              game={game}
+              width={width}
+              img={img}
+              locked={lockImg}
+            />
+          ) : (
+            <Tiles seed={seed} hidden={hidden} game={game} width={width} />
+          ))}
+        <Actions style={{ marginTop: 80 }}>
           <Button
             type="button"
-            onClick={() => setLockImg((v) => !v)}
+            onClick={() => history.push(seedStr())}
             style={{ marginRight: 25 }}
           >
-            {lockImg ? 'Move image' : 'Lock image'}
+            New game
           </Button>
-        )}
-        <input
-          hidden
-          ref={fileInput}
-          type="file"
-          value=""
-          onChange={async (e) => setImg(await onFileChange(e))}
-        />
-        <label htmlFor="use-image">
+          {img && (
+            <Button
+              type="button"
+              onClick={() => setLockImg((v) => !v)}
+              style={{ marginRight: 25 }}
+            >
+              {lockImg ? 'Move image' : 'Lock image'}
+            </Button>
+          )}
           <input
-            id="use-image"
-            checked={!!img}
-            type="checkbox"
-            onChange={() => {
-              if (!img && fileInput.current) fileInput.current.click();
-              else setImg(null);
-            }}
-          />{' '}
-          Use image
-        </label>
-      </Actions>
+            hidden
+            ref={fileInput}
+            type="file"
+            value=""
+            onChange={async (e) => setImg(await onFileChange(e))}
+          />
+          <label htmlFor="use-image">
+            <input
+              id="use-image"
+              checked={!!img}
+              type="checkbox"
+              onChange={() => {
+                if (!img && fileInput.current) fileInput.current.click();
+                else setImg(null);
+              }}
+            />{' '}
+            Use image
+          </label>
+        </Actions>
+      </div>
       {stars}
     </Main>
   );
