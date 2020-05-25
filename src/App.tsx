@@ -6,13 +6,10 @@ import { Color, generate } from './generate';
 import { Main, Button, Actions } from './components/Components';
 import { onFileChange, seedStr, useSeed } from './helpers';
 
-const stars = (
-  <div style={{ textAlign: 'right', flex: 0, padding: '15px 0 5px' }}>
+const ghLink = (
+  <div style={{ textAlign: 'right', flex: 0, margin: '15px 0' }}>
     <a href="https://github.com/lzear/codenames">
-      <img
-        alt="star this repo"
-        src="https://img.shields.io/github/stars/lzear/codenames?style=social"
-      />
+      <img width={20} alt="star this repo" src="/github.svg" />
     </a>
   </div>
 );
@@ -48,14 +45,14 @@ const App: React.FC = () => {
         : Color.RED;
   return (
     <Main ref={ref}>
-      <div style={{ flex: 1 }}>
+      <div style={{ flex: 1, position: 'relative' }}>
         <Actions>
           <Button type="button" onClick={() => setHidden((v) => !v)}>
             {hidden ? 'Show' : 'Hide'}
           </Button>
         </Actions>
         {starter !== null && (
-          <div>
+          <div style={{ marginBottom: 10 }}>
             Starter:{' '}
             <span style={{ color: starter }}>
               {starter === Color.BLUE ? 'Blue' : 'Red'}
@@ -96,6 +93,7 @@ const App: React.FC = () => {
           )}
           <input
             hidden
+            accept="image/*"
             ref={fileInput}
             type="file"
             value=""
@@ -115,7 +113,7 @@ const App: React.FC = () => {
           </label>
         </Actions>
       </div>
-      {stars}
+      {ghLink}
     </Main>
   );
 };

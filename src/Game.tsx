@@ -5,6 +5,7 @@ import { Color } from './generate';
 export const Row = styled.div`
   display: flex;
   justify-content: center;
+  margin: 0 -5px;
 `;
 export const CardDiv = styled.div<{
   cardColor: Color;
@@ -18,8 +19,7 @@ export const CardDiv = styled.div<{
     found || !imgMode ? cardColor : 'transparent'};
   outline: ${({ cardColor, imgMode, found }) =>
     found || !imgMode ? 'none' : `solid 6px ${cardColor}`};
-
-  outline-offset: -4px;
+  outline-offset: -5px;
   opacity: ${({ found }) => (found ? 0.2 : 1)};
   margin: 5px;
   padding: 5px;
@@ -44,8 +44,8 @@ const Card: React.FC<{
 };
 
 const Container = styled.div<{ isHidden: boolean; imgMode: boolean }>`
+  margin: -5px 0;
   visibility: ${({ isHidden }) => (isHidden ? 'hidden' : 'visible')};
-  margin: 0 -6px;
 `;
 
 export const Tiles: React.FC<{
