@@ -28,13 +28,14 @@
     "react-dom": "^16.13.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "4.0.0",
     "react-spring": "^8.0.27",
     "react-use-gesture": "^7.0.15",
     "seedrandom": "^3.0.5",
     "source-map-explorer": "^2.4.2",
     "styled-components": "^5.1.1",
-    "typescript": "~3.9.7"
+    "typescript": "~3.9.7",
+    "snyk": "^1.437.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,7 +43,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "eslint": "eslint './**/*.{ts,tsx,js,jsx}'",
-    "analyze": "source-map-explorer 'build/static/js/*.js'"
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -58,5 +61,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "snyk": true
 }
