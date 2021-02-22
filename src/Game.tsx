@@ -7,7 +7,7 @@ export const Row = styled.div`
   justify-content: center;
   margin: 0 -5px;
 `;
-export const CardDiv = styled.div<{
+export const CardButton = styled.button<{
   cardColor: Color;
   width: number;
   found: boolean;
@@ -23,6 +23,7 @@ export const CardDiv = styled.div<{
   opacity: ${({ found }) => (found ? 0.2 : 1)};
   margin: 5px;
   padding: 5px;
+  border: 0;
 `;
 
 const Card: React.FC<{
@@ -33,7 +34,7 @@ const Card: React.FC<{
 }> = ({ cardColor, width, imgMode, disabled }) => {
   const [found, setFound] = useState(false);
   return (
-    <CardDiv
+    <CardButton
       imgMode={imgMode}
       cardColor={cardColor}
       width={width}

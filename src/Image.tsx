@@ -12,7 +12,12 @@ const Image: React.FC<{
   img: string;
   seed: string;
 }> = ({ seed, game, width, hidden, img, locked }) => {
-  const [{ x, y, size, angle }, set] = useSpring(() => ({
+  const [{ x, y, size, angle }, set] = useSpring<{
+    x: number;
+    y: number;
+    size: number;
+    angle: number;
+  }>(() => ({
     x: 0,
     y: 0,
     size: 1,

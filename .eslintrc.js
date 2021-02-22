@@ -3,11 +3,13 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   env: { browser: true, node: true, es6: true },
   settings: { react: { version: 'detect' } },
+  "parserOptions": {
+    "project": ["tsconfig.json"]
+  },
   extends: [
     'airbnb-typescript',
     'plugin:prettier/recommended',
     'prettier',
-    'prettier/react',
     'plugin:prettier/recommended',
   ],
   rules: {
