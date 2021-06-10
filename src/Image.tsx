@@ -17,6 +17,7 @@ const Image: React.FC<{
     y: 0,
     scale: 1,
     rotateZ: 0,
+    immediate: true,
   }));
   const bind = useGesture(
     {
