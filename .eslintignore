@@ -1,2 +1,4 @@
 src/serviceWorker.ts
 src/react-app-env.d.ts
+build
+coverage
