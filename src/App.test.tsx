@@ -6,7 +6,9 @@ import App from './App';
 
 it('renders "Generate" button', () => {
   // @ts-ignore
-  global.window = { location: { search: '?seed=abc' } };
+  delete window.location;
+  // @ts-ignore
+  global.window.location = new URL('https://www.example.com?seed=r23');
   const { getByText } = render(
     <MemoryRouter>
       <App />
