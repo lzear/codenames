@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Color } from './generate';
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import { Color } from './generate'
 
 export const Row = styled.div`
   display: flex;
   justify-content: center;
   margin: 0 -5px;
-`;
+`
 export const CardButton = styled.button<{
-  cardColor: Color;
-  width: number;
-  found: boolean;
-  imgMode: boolean;
+  cardColor: Color
+  width: number
+  found: boolean
+  imgMode: boolean
 }>`
   height: ${({ width }) => width * 0.618}px;
   width: ${({ width }) => width}px;
@@ -24,15 +24,15 @@ export const CardButton = styled.button<{
   margin: 5px;
   padding: 5px;
   border: 0;
-`;
+`
 
 const Card: React.FC<{
-  cardColor: Color;
-  width: number;
-  imgMode: boolean;
-  disabled: boolean;
+  cardColor: Color
+  width: number
+  imgMode: boolean
+  disabled: boolean
 }> = ({ cardColor, width, imgMode, disabled }) => {
-  const [found, setFound] = useState(false);
+  const [found, setFound] = useState(false)
   return (
     <CardButton
       imgMode={imgMode}
@@ -41,21 +41,21 @@ const Card: React.FC<{
       found={found}
       onClick={() => !disabled && setFound((v) => !v)}
     />
-  );
-};
+  )
+}
 
 const Container = styled.div<{ isHidden: boolean; imgMode: boolean }>`
   margin: -5px 0;
   visibility: ${({ isHidden }) => (isHidden ? 'hidden' : 'visible')};
-`;
+`
 
 export const Tiles: React.FC<{
-  game: Color[][];
-  seed: string;
-  width: number;
-  hidden: boolean;
-  imgMode?: boolean;
-  disabled?: boolean;
+  game: Color[][]
+  seed: string
+  width: number
+  hidden: boolean
+  imgMode?: boolean
+  disabled?: boolean
 }> = ({ game, seed, width, hidden, imgMode = false, disabled = false }) => (
   <Container isHidden={hidden} imgMode={imgMode}>
     {game.map((row, key1) => (
@@ -74,4 +74,4 @@ export const Tiles: React.FC<{
       </Row>
     ))}
   </Container>
-);
+)

@@ -1,3 +1,4 @@
+// eslint-disable-next-line unicorn/prefer-module
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
@@ -8,17 +9,34 @@ module.exports = {
   },
   extends: [
     'airbnb-typescript',
-    'plugin:prettier/recommended',
+
+    // "next/core-web-vitals",
+    'eslint:recommended',
+    'plugin:import/recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:jsx-a11y/recommended',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:unicorn/recommended',
     'prettier',
     'plugin:prettier/recommended',
   ],
   rules: {
-    'prettier/prettier': 2,
-    'react/prop-types': 0,
+    '@typescript-eslint/ban-ts-comment': 0,
     '@typescript-eslint/explicit-function-return-type': [
       2,
       { allowExpressions: true },
     ],
+    'import/order': 2,
+    'jsx-quotes': 2,
+    'object-shorthand': 2,
+    'prettier/prettier': 2,
+    'react/jsx-curly-brace-presence': [2, 'never'],
+    'react/prop-types': 0,
+    'react/self-closing-comp': 2,
+    'unicorn/no-null': 0,
   },
 
   overrides: [
@@ -30,5 +48,5 @@ module.exports = {
       },
     },
   ],
-  plugins: ['@typescript-eslint', 'prettier', 'react-app', 'react-hooks'],
-};
+  plugins: ['@typescript-eslint', 'prettier', 'react-hooks'],
+}

@@ -1,31 +1,31 @@
-import { ChangeEvent, useEffect } from 'react';
-import { History } from 'history';
-import { useHistory } from 'react-router-dom';
+import { ChangeEvent, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import type { NavigateFunction } from 'react-router-dom'
 
-export const seedStr = (): string =>
-  `?seed=${Math.random().toString(36).substring(7)}`;
+export const seedString = (): string =>
+  `?seed=${Math.random().toString(36).slice(7)}`
 
-export const useSeed = (): [History, string | null] => {
-  const history: History = useHistory();
-  const urlParams = new URLSearchParams(window.location.search);
-  const seed = urlParams.get('seed');
+export const useSeed = (): [NavigateFunction, string | null] => {
+  const navigate = useNavigate()
+  const urlParameters = new URLSearchParams(window.location.search)
+  const seed = urlParameters.get('seed')
   useEffect(() => {
-    if (!seed) history.replace(seedStr());
-  }, [seed, history]);
-  return [history, seed];
-};
+    if (!seed) navigate(seedString(), { replace: true })
+  }, [seed, navigate])
+  return [navigate, seed]
+}
 
 export const onFileChange = (
-  e: ChangeEvent<HTMLInputElement>,
+  event: ChangeEvent<HTMLInputElement>,
 ): Promise<string> => {
-  const reader = new FileReader();
-  const { files } = e.target;
-  if (!files || !files.length) throw Error('no file');
+  const reader = new FileReader()
+  const { files } = event.target
+  if (!files || files.length === 0) throw new Error('no file')
   return new Promise<string>((resolve) => {
-    const file = files[0];
+    const file = files[0]
     reader.onloadend = () => {
-      if (reader.result) resolve(reader.result as string);
-    };
-    reader.readAsDataURL(file);
-  });
-};
+      if (reader.result) resolve(reader.result as string)
+    }
+    reader.readAsDataURL(file)
+  })
+}
