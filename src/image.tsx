@@ -1,16 +1,16 @@
-import React from 'react';
-import { useSpring, animated } from 'react-spring';
-import { useGesture } from 'react-use-gesture';
-import { Color } from './generate';
-import { Tiles } from './Game';
+import React, { useRef } from 'react'
+import { useSpring, animated } from 'react-spring'
+import { useGesture } from '@use-gesture/react'
+import { Color } from './generate'
+import { Tiles } from './game'
 
 const Image: React.FC<{
-  game: Color[][];
-  width: number;
-  hidden: boolean;
-  locked: boolean;
-  img: string;
-  seed: string;
+  game: Color[][]
+  width: number
+  hidden: boolean
+  locked: boolean
+  img: string
+  seed: string
 }> = ({ seed, game, width, hidden, img, locked }) => {
   const [{ x, y, scale, rotateZ }, set] = useSpring(() => ({
     x: 0,
@@ -18,22 +18,40 @@ const Image: React.FC<{
     scale: 1,
     rotateZ: 0,
     immediate: true,
-  }));
+    config: {
+      duration: 0,
+    },
+  }))
+  const v0 = useRef(0)
   const bind = useGesture(
     {
       onDrag: ({ offset: [xx, yy] }) => set({ x: xx, y: yy }),
+      onPinchStart: (state) => {
+        v0.current = scale.get() / state.offset[0]
+      },
+      onWheel: (state) => {
+        set({
+          // rotateZ: state.offset[1],
+          scale: scale.get() * (1 - state.delta[1] * 0.001),
+        })
+      },
       onPinch: ({ offset }) => {
         set({
           rotateZ: offset[1],
-          scale: offset[0] / 100,
-        });
+          scale: offset[0] * v0.current,
+        })
       },
     },
-    { drag: { delay: 0 } },
-  );
+    {
+      // target: typeof window !== 'undefined' ? window : undefined,
+      drag: { delay: 0 },
+    },
+  )
+  console.log('%c antoinelog bind', 'background: #222; color: #bada55', bind)
+
   return (
     <>
-      {img && (
+      {img ? (
         <animated.img
           // @ts-ignore
           src={img}
@@ -49,9 +67,8 @@ const Image: React.FC<{
             y,
           }}
         />
-      )}
+      ) : null}
       <div
-        // eslint-disable-next-line react/jsx-props-no-spreading
         {...(locked ? {} : bind())}
         style={{
           userSelect: 'none',
@@ -69,7 +86,7 @@ const Image: React.FC<{
         />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Image;
+export default Image
