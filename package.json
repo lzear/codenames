@@ -78,21 +78,5 @@
       "last 1 safari version"
     ]
   },
-  "jest": {
-    "coverageThreshold": {
-      "global": {
-        "branches": 8,
-        "functions": 17,
-        "lines": 35,
-        "statements": 34
-      }
-    },
-    "coverageReporters": [
-      "text",
-      "text-summary",
-      "html",
-      "lcov"
-    ]
-  },
   "snyk": true
 }

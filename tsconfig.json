@@ -21,6 +21,6 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "src", ".eslintrc.js"
+    "src", ".eslintrc.js", "jest.config.ts"
   ]
 }
