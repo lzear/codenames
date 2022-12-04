@@ -18,7 +18,7 @@
     "@types/seedrandom": "^3.0.2",
     "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
-    "@typescript-eslint/parser": "^5.38.1",
+    "@typescript-eslint/parser": "^5.39.0",
     "@use-gesture/react": "^10.2.20",
     "eslint": "^8.24.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
