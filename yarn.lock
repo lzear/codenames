@@ -2585,10 +2585,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@snyk/protect@^1.1019.0":
-  version "1.1019.0"
-  resolved "https://registry.yarnpkg.com/@snyk/protect/-/protect-1.1019.0.tgz#c3287ac534a8fc85217b2ef9f5e4d77166f074b0"
-  integrity sha512-LuMrTKSuzQ6hcmD6H4mgjor1MwYJUVOT28ZuoFyNRwqW5Aowqf/0x5iZIYZDpTg5JR2yYARQS96uc3dbY3lDFA==
+"@snyk/protect@^1.1020.0":
+  version "1.1041.0"
+  resolved "https://registry.yarnpkg.com/@snyk/protect/-/protect-1.1041.0.tgz#dc88c5712d037c495dc2b6b558baf37ba1bb3220"
+  integrity sha512-i6V3S1jO9B00Wb2EOoVhvi0XvRXF3BGaceeglTeRfGVtiKSklhUZjweKFtoI8Y5iSNL6lWHXfUscS8Qn7kdg1A==
 
 "@surma/rollup-plugin-off-main-thread@^2.2.3":
   version "2.2.3"
@@ -7137,56 +7137,11 @@ jest-runner@^27.5.1:
   version "27.5.1"
   resolved "https://registry.yarnpkg.com/jest-runner/-/jest-runner-27.5.1.tgz#071b27c1fa30d90540805c5645a0ec167c7b62e5"
   integrity sha512-g4NPsM4mFCOwFKXO4p/H/kWGdJp9V8kURY2lX8Me2drgXqG7rrZAx5kv+5H7wtt/cdFIjhqYx1HrlqWHaOvDaQ==
-  dependencies:
-    "@jest/console" "^27.5.1"
-    "@jest/environment" "^27.5.1"
-    "@jest/test-result" "^27.5.1"
-    "@jest/transform" "^27.5.1"
-    "@jest/types" "^27.5.1"
-    "@types/node" "*"
-    chalk "^4.0.0"
-    emittery "^0.8.1"
-    graceful-fs "^4.2.9"
-    jest-docblock "^27.5.1"
-    jest-environment-jsdom "^27.5.1"
-    jest-environment-node "^27.5.1"
-    jest-haste-map "^27.5.1"
-    jest-leak-detector "^27.5.1"
-    jest-message-util "^27.5.1"
-    jest-resolve "^27.5.1"
-    jest-runtime "^27.5.1"
-    jest-util "^27.5.1"
-    jest-worker "^27.5.1"
-    source-map-support "^0.5.6"
-    throat "^6.0.1"
 
 jest-runtime@^27.5.1:
   version "27.5.1"
   resolved "https://registry.yarnpkg.com/jest-runtime/-/jest-runtime-27.5.1.tgz#4896003d7a334f7e8e4a53ba93fb9bcd3db0a1af"
   integrity sha512-o7gxw3Gf+H2IGt8fv0RiyE1+r83FJBRruoA+FXrlHw6xEyBsU8ugA6IPfTdVyA0w8HClpbK+DGJxH59UrNMx8A==
-  dependencies:
-    "@jest/environment" "^27.5.1"
-    "@jest/fake-timers" "^27.5.1"
-    "@jest/globals" "^27.5.1"
-    "@jest/source-map" "^27.5.1"
-    "@jest/test-result" "^27.5.1"
-    "@jest/transform" "^27.5.1"
-    "@jest/types" "^27.5.1"
-    chalk "^4.0.0"
-    cjs-module-lexer "^1.0.0"
-    collect-v8-coverage "^1.0.0"
-    execa "^5.0.0"
-    glob "^7.1.3"
-    graceful-fs "^4.2.9"
-    jest-haste-map "^27.5.1"
-    jest-message-util "^27.5.1"
-    jest-mock "^27.5.1"
-    jest-regex-util "^27.5.1"
-    jest-resolve "^27.5.1"
-    jest-snapshot "^27.5.1"
-    jest-util "^27.5.1"
-    slash "^3.0.0"
-    strip-bom "^4.0.0"
 
 jest-serializer@^27.5.1:
   version "27.5.1"
