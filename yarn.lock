@@ -2177,15 +2177,6 @@
     jest-mock "^27.5.1"
     jest-util "^27.5.1"
 
-"@jest/globals@^27.5.1":
-  version "27.5.1"
-  resolved "https://registry.yarnpkg.com/@jest/globals/-/globals-27.5.1.tgz#7ac06ce57ab966566c7963431cef458434601b2b"
-  integrity sha512-ZEJNB41OBQQgGzgyInAv0UUfDDj3upmHydjieSxFvTRuZElrx7tXg/uVQ5hYVEwiXs3+aMsAeEc9X7xiSKCm4Q==
-  dependencies:
-    "@jest/environment" "^27.5.1"
-    "@jest/types" "^27.5.1"
-    expect "^27.5.1"
-
 "@jest/reporters@^27.5.1":
   version "27.5.1"
   resolved "https://registry.yarnpkg.com/@jest/reporters/-/reporters-27.5.1.tgz#ceda7be96170b03c923c37987b64015812ffec04"
@@ -4362,11 +4353,6 @@ ci-info@^3.2.0, ci-info@^3.4.0:
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-3.4.0.tgz#b28484fd436cbc267900364f096c9dc185efb251"
   integrity sha512-t5QdPT5jq3o262DOQ8zA6E1tlH2upmUc4Hlvrbx1pGYJuiiHl7O7rvVNI+l8HTVhd/q3Qc9vqimkNk5yiXsAug==
 
-cjs-module-lexer@^1.0.0:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/cjs-module-lexer/-/cjs-module-lexer-1.2.2.tgz#9f84ba3244a512f3a54e5277e8eef4c489864e40"
-  integrity sha512-cOU9usZw8/dXIXKtwa8pM0OTJQuJkxMN6w30csNRUerHfeQ5R6U3kkU/FtJeIf3M202OHfY2U8ccInBG7/xogA==
-
 clean-css@^5.2.2:
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-5.3.1.tgz#d0610b0b90d125196a2894d35366f734e5d7aa32"
@@ -4952,11 +4938,6 @@ destroy@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/destroy/-/destroy-1.2.0.tgz#4803735509ad8be552934c67df614f94e66fa015"
   integrity sha512-2sJGJTaXIIaR1w4iJSNoN0hnMY7Gpc/n8D4qSCJw8QqFWXf7cuAgnEHxBpweaVcPevC2l3KpjYCx3NypQQgaJg==
-
-detect-newline@^3.0.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/detect-newline/-/detect-newline-3.1.0.tgz#576f5dfc63ae1a192ff192d8ad3af6308991b651"
-  integrity sha512-TLz+x/vEXm/Y7P7wn1EJFNLxYpUD4TgMosxY6fAVJUnJMbupHBOncxyWUG9OpTaH9EBD7uFI5LfEgmMOc54DsA==
 
 detect-node@^2.0.4:
   version "2.1.0"
@@ -6988,13 +6969,6 @@ jest-diff@^29.1.2:
     jest-get-type "^29.0.0"
     pretty-format "^29.1.2"
 
-jest-docblock@^27.5.1:
-  version "27.5.1"
-  resolved "https://registry.yarnpkg.com/jest-docblock/-/jest-docblock-27.5.1.tgz#14092f364a42c6108d42c33c8cf30e058e25f6c0"
-  integrity sha512-rl7hlABeTsRYxKiUfpHrQrG4e2obOiTQWfMEH3PxPjOtdsfLQO4ReWSZaQ7DETm4xu07rl4q/h4zcKXyU0/OzQ==
-  dependencies:
-    detect-newline "^3.0.0"
-
 jest-each@^27.5.1:
   version "27.5.1"
   resolved "https://registry.yarnpkg.com/jest-each/-/jest-each-27.5.1.tgz#5bc87016f45ed9507fed6e4702a5b468a5b2c44e"
@@ -7088,14 +7062,6 @@ jest-jasmine2@^27.5.1:
     jest-util "^27.5.1"
     pretty-format "^27.5.1"
     throat "^6.0.1"
-
-jest-leak-detector@^27.5.1:
-  version "27.5.1"
-  resolved "https://registry.yarnpkg.com/jest-leak-detector/-/jest-leak-detector-27.5.1.tgz#6ec9d54c3579dd6e3e66d70e3498adf80fde3fb8"
-  integrity sha512-POXfWAMvfU6WMUXftV4HolnJfnPOGEu10fscNCA76KBpRRhcMN2c8d3iT2pxQS3HLbA+5X4sOUPzYO2NUyIlHQ==
-  dependencies:
-    jest-get-type "^27.5.1"
-    pretty-format "^27.5.1"
 
 jest-matcher-utils@^27.5.1:
   version "27.5.1"
@@ -7847,15 +7813,10 @@ minimatch@^3.1.2:
   dependencies:
     brace-expansion "^1.1.7"
 
-minimist@^1.2.0, minimist@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
-  integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
-
-minimist@^1.2.6:
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.6.tgz#8637a5b759ea0d6e98702cfb3a9283323c93af44"
-  integrity sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==
+minimist@^1.2.0, minimist@^1.2.5, minimist@^1.2.6:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.8.tgz#c1a464e7693302e082a075cee0c057741ac4772c"
+  integrity sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==
 
 mkdirp@^0.5.1, mkdirp@~0.5.1:
   version "0.5.5"
@@ -10010,14 +9971,6 @@ source-map-loader@^3.0.0:
     iconv-lite "^0.6.3"
     source-map-js "^1.0.1"
 
-source-map-support@^0.5.6:
-  version "0.5.19"
-  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.19.tgz#a98b62f86dcaf4f67399648c085291ab9e8fed61"
-  integrity sha512-Wonm7zOCIJzBGQdB+thsPar0kYuCIzYvxZwlBa87yi/Mdjv7Tip2cyVbLj5o0cFPN4EVkuTwb3GDDyUx2DGnGw==
-  dependencies:
-    buffer-from "^1.0.0"
-    source-map "^0.6.0"
-
 source-map-support@~0.5.20:
   version "0.5.21"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.21.tgz#04fe7c7f9e1ed2d662233c28cb2b35b9f63f6e4f"
@@ -10279,11 +10232,6 @@ strip-bom@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/strip-bom/-/strip-bom-3.0.0.tgz#2334c18e9c759f7bdd56fdef7e9ae3d588e68ed3"
   integrity sha1-IzTBjpx1n3vdVv3vfprj1YjmjtM=
-
-strip-bom@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/strip-bom/-/strip-bom-4.0.0.tgz#9c3505c1db45bcedca3d9cf7a16f5c5aa3901878"
-  integrity sha512-3xurFv5tEgii33Zi8Jtp55wEIILR9eh34FAW00PZf+JnSsTmV/ioewSgQl97JHvgjoRGwPShsWm+IdrxB35d0w==
 
 strip-comments@^2.0.1:
   version "2.0.1"
